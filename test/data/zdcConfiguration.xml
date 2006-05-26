@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Configuration xmlns="." xmlns:xsi="." xsi:schemaLocation= "." name="CMSConfiguration" version="0">
+<Include name="test">
+ <File name="Geometry/CMSCommonData/data/materials.xml"            url="."/>
+ <File name="Geometry/ForwardCommonData/data/zdcmaterials.xml"     url="."/>
+ <File name="Geometry/ForwardCommonData/data/lumimaterials.xml"    url="."/>
+ <File name="Geometry/ForwardCommonData/data/zdcrotations.xml"     url="."/>
+ <File name="Geometry/ForwardCommonData/data/lumirotations.xml"    url="."/>
+ <File name="Geometry/ForwardCommonData/data/zdc.xml"              url="."/>
+ <File name="Geometry/ForwardCommonData/data/zdclumi.xml"          url="."/>
+ <File name="SimG4CMS/Forward/test/data/CaloUtil.xml"              url="."/>  
+ <File name="Geometry/ForwardSimData/data/zdcsens.xml"             url="."/>
+ <File name="Geometry/ForwardSimData/data/zdcProdCuts.xml"         url="."/>
+</Include>
+<Root fileName="zdc.xml" logicalPartName="ZDCWorld"/>
+</Configuration>
