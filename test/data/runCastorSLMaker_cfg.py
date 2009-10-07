@@ -7,8 +7,8 @@ common_maximum_timex = cms.PSet(
 )
 
 common_pgun_particleID = cms.PSet(
-        #PartID = cms.vint32(11,211)
-        PartID = cms.vint32(11)
+        PartID = cms.vint32(11,211)
+        #PartID = cms.vint32(11)
 )
 
 process = cms.Process("CastorShowerLibraryMaker")
@@ -117,7 +117,7 @@ process.g4SimHits.Watchers = cms.VPSet(cms.PSet(
     type = cms.string('CastorShowerLibraryMaker'),
     CastorShowerLibraryMaker = cms.PSet(
         common_pgun_particleID,
-        EventNtupleFileName = cms.string('SL_em_E1:5:10:30:60:100GeV_7eta-6.6:-5.2_10phi0:0.7854_10events.root'),
+        EventNtupleFileName = cms.string('SL_em+had_E1:5:10:30:60:100GeV_7eta-6.6:-5.2_10phi0:0.7854_10events.root'),
         Verbosity = cms.int32(0),
         StepNtupleFileName = cms.string('stepNtuple_pion_electron.root'),
         StepNtupleFlag = cms.int32(0),
@@ -127,14 +127,14 @@ process.g4SimHits.Watchers = cms.VPSet(cms.PSet(
         SLemEnergyBins  = cms.vdouble(1.0,5.0,10.,30.,60.),
         SLemEtaBins     = cms.vdouble(-6.6,-6.4,-6.2,-6.0,-5.8,-5.6,-5.4),
         SLemPhiBins     = cms.vdouble(0.,0.07854,0.15708,0.23562,0.31416,0.3927,0.47124,0.54978,0.62832,0.70686),
-        nhadEvents       = cms.int32(0),
-        SLhadEnergyBins  = cms.vdouble(),
-        SLhadEtaBins     = cms.vdouble(),
-        SLhadPhiBins     = cms.vdouble()
-#        nhadEvents       = cms.int32(10),
-#        SLhadEnergyBins  = cms.vdouble(1.0,5.0,10.,30.,60.),
-#        SLhadEtaBins     = cms.vdouble(-6.6,-6.4,-6.2,-6.0,-5.8,-5.6,-5.4),
-#        SLhadPhiBins     = cms.vdouble(0.,0.07854,0.15708,0.23562,0.31416,0.3927,0.47124,0.54978,0.62832,0.70686)
+#        nhadEvents       = cms.int32(0),
+#        SLhadEnergyBins  = cms.vdouble(),
+#        SLhadEtaBins     = cms.vdouble(),
+#        SLhadPhiBins     = cms.vdouble()
+        nhadEvents       = cms.int32(10),
+        SLhadEnergyBins  = cms.vdouble(1.0,5.0,10.,30.,60.),
+        SLhadEtaBins     = cms.vdouble(-6.6,-6.4,-6.2,-6.0,-5.8,-5.6,-5.4),
+        SLhadPhiBins     = cms.vdouble(0.,0.07854,0.15708,0.23562,0.31416,0.3927,0.47124,0.54978,0.62832,0.70686)
     )
 ))
 
