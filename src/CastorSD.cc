@@ -17,15 +17,12 @@
 #include "G4Track.hh"
 #include "G4VProcess.hh"
 
-#include "FWCore/ServiceRegistry/interface/Service.h"
-#include "FWCore/Utilities/interface/RandomNumberGenerator.h"
-#include "CLHEP/Random/RandPoissonQ.h"
-#include "FWCore/Utilities/interface/Exception.h"
 #include "G4ios.hh"
 #include "G4Cerenkov.hh"
 
 #include "CLHEP/Units/GlobalSystemOfUnits.h"
-#include "CLHEP/Random/Randomize.h"
+#include "Randomize.hh"
+#include "G4Poisson.hh"
 
 #define debugLog
 
@@ -377,18 +374,7 @@ double CastorSD::getEnergyDeposit(G4Step * aStep) {
 
 	  //     NCherPhot = meanNCherPhot;
 	  // Poisson:
-	  edm::Service<edm::RandomNumberGenerator> rng;
-	  if ( ! rng.isAvailable()) {
-	    throw cms::Exception("Configuration")
-	      << "CastorSD requires the RandomNumberGeneratorService\n"
-	      << "which is not present in the configuration file.  "
-	      << "You must add the service\n" << "in the configuration file "
-	      << "or remove the modules that require it.";
-	  }
-	  CLHEP::RandPoissonQ randPoisson(rng->getEngine());
-	  G4int poissNCherPhot = (G4int) randPoisson.fire(meanNCherPhot);
-
-	  // G4int poissNCherPhot = (G4int) G4Poisson(meanNCherPhot);
+	  G4int poissNCherPhot = (G4int) G4Poisson(meanNCherPhot);
 
 	  if(poissNCherPhot < 0) poissNCherPhot = 0; 
 	  
